@@ -37,11 +37,7 @@ function orderProducts(array){
     }
     return result;
 }
-//Función que ordena el rango de precios.
-function prueba (array) {
 
-    showProductsListRange(orderProducts(array))
-}
 //Función que filtra por rango
 function showProductsListRange(array){
         var productos = [];
@@ -50,7 +46,7 @@ function showProductsListRange(array){
             if (array[i].cost >= rangeMin && array[i].cost <= rangeMax ) {
             var productos = array[i];
              htmlContentToAppend2 += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action" id="producto`+i+ `">
             <div class="row">
                 <div class="col-3">
                     <img src="` + productos.imgSrc + `" alt="` + productos.description + `" class="img-thumbnail">
@@ -72,9 +68,7 @@ function showProductsListRange(array){
         };
         if (productos.length == 0){
             confirm("El filtro excluye todos los productos. No hay artículos con ese rango de precio.");
-        }
-        
-             
+        }      
 };
 // Creación de función que muestra listado de artículos.    
 function showProductsList(array){
@@ -82,7 +76,7 @@ function showProductsList(array){
         for(let i = 0; i < array.length; i++){
             let products = array[i];
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action" id="producto`+i+ `">
             <div class="row">
                 <div class="col-3">
                     <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
@@ -105,13 +99,16 @@ function showProductsList(array){
 };
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    
     // Se declara objeto para trabajar JSON.
     let arrayProducts = {}; 
+   // var pruebaLet;
     // Se realiza consulta para traer listado de productos.
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){          
             arrayProducts = resultObj.data;            
             showProductsList(orderProducts(arrayProducts));
+           
         }
         
         });
@@ -157,4 +154,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsListRange(arrayProducts);
     });
     
+    
+    
 });
+
+
+//Prueba extarer valor
+
+
