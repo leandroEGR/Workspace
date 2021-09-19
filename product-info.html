@@ -10,6 +10,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -26,13 +27,62 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="text-center p-4">
+      <h2>Descripción de producto</h2>
+      <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
     </div>
+
+    <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Costo del producto.</dt>
+        <dd>
+          <p id="productCost"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+    <!--Sección comentarios-->
+      <h3>Comentarios:</h3>
+      <hr class="my-3">
+      <div id="containerComments">
+      </div>
+    <!--Fin sección comentarios-->  
+
+    <!--Sección  realizar comentarios-->
+    <div class="col-md-12 mb-3">
+      <div class="text-center p-4">
+        <h2>Realizar comentario del producto</h2>
+        <p class="lead">(Recuerde iniciar sesión para poder hacerlo).</p>
+      </div>
+      <label for="state">Puntuación</label>
+                  <select class="custom-select d-block w-100" id="productsScore" >
+                    <option value="">Elija puntuación...</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  <br>
+      <label >Comentario.</label>            
+      <textarea class="form-control" id="productsComment" rows="3" placeholder="Ingrese aquí un comentario sobre el producto..."></textarea>
+      <br>
+      <button class="btn btn-primary btn-lg" type="submit" id="btnSendComment">Enviar Comentario</button>
+    </div>
+    <!--Fin sección realizar comentarios-->
+
   </div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
