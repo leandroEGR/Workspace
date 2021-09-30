@@ -44,7 +44,7 @@ function viewNav() {
         </div>
       </div>
     </div>
-  </nav>  ; `
+  </nav> `
   document.body.innerHTML += navbarCont ; }
 }
 
