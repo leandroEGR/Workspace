@@ -1,5 +1,40 @@
 var product = {};
 var nroComment = undefined;
+
+//Función que muestra artículos relacionados.
+function viewRelatedProducts() {
+    let listadoProductos = {};
+    getJSONData(PRODUCTS_URL).then(function(Obj){
+        if (Obj.status === "ok"){          
+            listadoProductos = Obj.data; 
+        }  
+            
+            let arrayProducts = {};
+            getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
+            if (resultObj.status === "ok"){          
+            arrayProducts = resultObj.data; 
+            let relacionados = arrayProducts.relatedProducts;
+            
+
+            for (let i = 0; i < relacionados.length; i++) {
+                document.getElementById('productsRela').innerHTML += `
+                <a href="product-info.html" style="text-decoration : none ;">
+                <div class="card" style="width: 18rem; margin-left: 2% ; margin-bottom: 2%">
+                <img src=" ` + listadoProductos[(relacionados[i])].imgSrc + `" class="card-img-top" alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">` + listadoProductos[(relacionados[i])].name + `</h5>
+                  <p class="card-text">` + listadoProductos[(relacionados[i])].description + `</p>
+                  </a>
+                </div>`;
+            } 
+            
+           
+        } 
+        
+        }); //fin json products_url
+    });
+} // fin función
+
 // Función que muestra el comentario realizado en el producto.
   function sendComment () {
      document.getElementById('btnSendComment').addEventListener("click" , function() {
@@ -37,6 +72,9 @@ var nroComment = undefined;
                     contenedor.innerHTML += "<hr class='my-3'>" ;
                     confirm("El comentario fue agregado con éxito!.")
                     nroComment = nroComment + 1;
+                    comentario.value="";
+                    puntuacion.value="";
+
                     
             }
         }
@@ -45,21 +83,35 @@ var nroComment = undefined;
 function showImagesProductsGallery(array){
 
     let htmlContentToAppend = "";
-
-    for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+    var divImg;
+    for(let i = 1; i < array.length; i++){
+        
+        divImg += ` 
+            <div class="carousel-item" >
+            <img src=" ` + array[i] + `" class="d-block w-100" alt="...">
+            </div> ` ;
     }
+        htmlContentToAppend += ` 
+        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" >
+              <img src="`+ array[0] +`" class="d-block w-100" alt="...">
+            </div>
+            ` + divImg + `   
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        `;
+        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
 }
+
 // Función que muestra las estrellas de la puntuación en base al score del producto.
 function showStarInCommit(score) {
     let star = "";
@@ -136,5 +188,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
     //Fin mostrar Comentarios
+    
 });
 sendComment();
+viewRelatedProducts();
