@@ -6,42 +6,34 @@ function confirmCart() {
 }
 
 function editCantArticles(param1 ,param2,param3 ,param4,param5) {
-  let cantManual = prompt('Ingrese la cantidad que desea agregar al carrito:');
-  if (cantManual == 0 ||  cantManual=="" ) {
-      while(cantManual == 0 || cantManual=="" ) {
-      cantManual = prompt('Ingrese una cantidad distinta a cero.'); }
-  } else if (cantManual == null ) {
-    document.getElementById(param4).innerHTML= document.getElementById(param4).innerHTML;
-  } else if (isNaN(cantManual) == true) {
-    while(isNaN(cantManual) == true) {
-      cantManual = prompt('ERROR! Ingrese una cantidad numérica:'); }
-}else {
-
-       cantManual = parseInt(cantManual);
-       moneda = document.getElementById(param5).innerHTML;
-      let cotizacion;
-            if ( moneda=='USD') {
-              cotizacion = 40 ;
-              } else {
-                cotizacion= 1;
-              }
-       let costo = document.getElementById(param1).innerHTML;
-       document.getElementById(param4).innerHTML= cantManual;
-       costo = parseInt(costo);
-       document.getElementById(param2).innerHTML = cantManual * (costo * cotizacion) ;
-
-  // intento calcular el valor total
-        var sumar = 0 ;
-        for (let n=0 ; n < param3 ; n++) {
-    
-        let valor = document.getElementById('subtotal'+n).innerHTML ;
-        valor = parseInt(valor);
-    
-       sumar = sumar + valor ;
-  }
- document.getElementById('totalCostCart').innerHTML="<h3>$" + sumar + "</h3>"
-} }
-
+  var cantManual = prompt('Ingrese la cantidad que desea agregar al carrito:');
+                 
+                          while(cantManual == 0 || cantManual=="" || isNaN(cantManual) == true ) {
+                          cantManual = prompt('ERROR!! ... Ingrese una cantidad válida:');   }                       
+                          if (cantManual == null ) {
+                              document.getElementById(param4).innerHTML= document.getElementById(param4).innerHTML;   
+                          }else {                  
+                          cantManual = parseInt(cantManual);
+                          moneda = document.getElementById(param5).innerHTML;
+                          let cotizacion;
+                                if ( moneda=='USD') {
+                                  cotizacion = 40 ;
+                                  } else {
+                                    cotizacion= 1; }
+                          let costo = document.getElementById(param1).innerHTML;
+                          document.getElementById(param4).innerHTML= cantManual;
+                          costo = parseInt(costo);
+                          document.getElementById(param2).innerHTML = cantManual * (costo * cotizacion) ;
+                           // intento calcular el valor total
+                           var sumar = 0 ;
+                           for (let n=0 ; n < param3 ; n++) {
+                           let valor = document.getElementById('subtotal'+n).innerHTML ;
+                           valor = parseInt(valor);
+                           sumar = sumar + valor ; } 
+  
+ document.getElementById('totalCostCart').innerHTML="<h3>$" + sumar + "</h3>" // Se agrega el total al documento.
+}
+} // Termina la función
 function addAndQuit(param1,param2,param3,param4,param5,param6) {
   
   let cant;
@@ -81,8 +73,6 @@ function addAndQuit(param1,param2,param3,param4,param5,param6) {
    }
   document.getElementById('totalCostCart').innerHTML="<h3>$" + sumar + "</h3>";
 }
-
-
 function showCart () {
     var infoCart = {};
    
@@ -153,10 +143,6 @@ function showCart () {
       </table> ` ;
         
     })};
-
-   
-
-
 document.addEventListener("DOMContentLoaded", function(e){
     showCart();
 });
