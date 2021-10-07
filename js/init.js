@@ -42,7 +42,7 @@ function viewNav() {
   } else {
   
   let navbarCont = ` <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a href="main.html" style="margin-right: 25%"><img src="/img/icon.png" width="40" height="40" alt="Error!"><a/>
+  <a href="main.html" style="margin-right: 25%"><img src="Workspace/img/icon.png" width="40" height="40" alt="Error!"><a/>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="main.html" style="decoration:none; color:white;">Inicio</a> <span class="sr-only">(current)</span></button>
