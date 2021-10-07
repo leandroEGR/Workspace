@@ -6,6 +6,7 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const CART_INFO= "https://leandroegr.github.io/Veterinaria/articles.json";
 var userName = sessionStorage.getItem('user');
 
 // Función que limpia el sessionStorage que almacena el nombre de usuario.
@@ -23,6 +24,7 @@ function viewNav() {
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       <a class="py-2 d-none d-md-inline-block" href="index.html">Iniciar sesión</a> 
       `
       document.body.innerHTML += navbarCont ;
@@ -34,12 +36,13 @@ function viewNav() {
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         ` + userName + `</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="cart.html">Carrito</a>
+          
           <a class="dropdown-item" onclick = "clearSession()" href="index.html">Cerrar sesión</a>
         </div>
       </div>
