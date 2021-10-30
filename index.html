@@ -50,21 +50,12 @@
             <p>Usuario <input type="text" placeholder="Ingrese aquí su usuario" class="form-control" name="user" required="true" id="username" ></p>
             <p>Contraseña<input type="password" placeholder="Ingrese aquí su contraseña" class="form-control" name="pass" required="true" id="password" ></p>
             <p><input type="submit" name="btn-login" class="btn btn-primary btn-lg" value="Iniciar sesión" id="idBtnLogin">
-              <!--Setear usuario en sessionStorage-->
-              <script>
-                document.getElementById("idBtnLogin").addEventListener("click", function(){
-                let usuario = document.getElementById('username').value;
-                let contraseña = document.getElementById('password').value;
-                sessionStorage.setItem('user', usuario);
-                });
-        
-          </script>
             </form>
             <input type="submit" name="btn-login" class="btn btn-primary btn-lg" value="Registrarse"></p>
         
       </p>
   </div>
-  
+
   <script src="js/login.js"></script>
   
  
