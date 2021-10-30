@@ -7,27 +7,27 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 const CART_INFO= "https://leandroegr.github.io/Veterinaria/articles.json";
-var userName = sessionStorage.getItem('user');
+var userName = localStorage.getItem('user');
 
 // Función que limpia el sessionStorage que almacena el nombre de usuario.
 function clearSession() {
-  sessionStorage.clear();
+  localStorage.clear();
   userName=undefined;
 }
 //Función que muestra barra de navegación en base a, si se inició sesión o no.
 function viewNav() {
-  let userName=sessionStorage.getItem('user');
+  let userName=localStorage.getItem('user');
   if (userName==undefined) {
     let navbarCont = ` <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <a href="main.html" style="margin-right: 25%"><img src="img/icon.png" width="40" height="40" alt="Error!"><a/>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="main.html" style="decoration:none; color:white;">Inicio</a> <span class="sr-only">(current)</span></button>
-        <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="categories.html" style="decoration:none; color:white;">Categorias</a> <span class="sr-only">(current)</span></button>
-        <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="products.html" style="decoration:none; color:white;">Productos</a> <span class="sr-only">(current)</span></button>
-        <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="sell.html" style="decoration:none; color:white;">Vender</a> <span class="sr-only">(current)</span></button>
-        <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="cart.html" style="decoration:none; color:white;">Carrito</a> <span class="sr-only">(current)</span></button>
-        <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="index.html" style="decoration:none; color:white;">Iniciar Sesión</a> <span class="sr-only">(current)</span></button>
+        <button onclick="location.href='main.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="main.html" style="decoration:none; color:white;">Inicio</a> <span class="sr-only">(current)</span></button>
+        <button onclick="location.href='categories.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="categories.html" style="decoration:none; color:white;">Categorías</a> <span class="sr-only">(current)</span></button>
+        <button onclick="location.href='products.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="products.html" style="decoration:none; color:white;">Productos</a> <span class="sr-only">(current)</span></button>
+        <button onclick="location.href='sell.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="sell.html" style="decoration:none; color:white;">Vender</a> <span class="sr-only">(current)</span></button>
+        <button onclick="location.href='cart.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="cart.html" style="decoration:none; color:white;">Carrito</a> <span class="sr-only">(current)</span></button>
+        <button onclick="location.href='index.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="index.html" style="decoration:none; color:white;">Iniciar Sesión</a> <span class="sr-only">(current)</span></button>
       
       </div>
       </div>
@@ -45,11 +45,11 @@ function viewNav() {
   <a href="main.html" style="margin-right: 25%"><img src="img/icon.png" width="40" height="40" alt="Error!"><a/>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="main.html" style="decoration:none; color:white;">Inicio</a> <span class="sr-only">(current)</span></button>
-      <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="categories.html" style="decoration:none; color:white;">Categorias</a> <span class="sr-only">(current)</span></button>
-      <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="products.html" style="decoration:none; color:white;">Productos</a> <span class="sr-only">(current)</span></button>
-      <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="sell.html" style="decoration:none; color:white;">Vender</a> <span class="sr-only">(current)</span></button>
-      <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="cart.html" style="decoration:none; color:white;">Carrito</a> <span class="sr-only">(current)</span></button>
+      <button onclick="location.href='main.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="main.html" style="decoration:none; color:white;">Inicio</a> <span class="sr-only">(current)</span></button>
+      <button onclick="location.href='categories.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="categories.html" style="decoration:none; color:white;">Categorías</a> <span class="sr-only">(current)</span></button>
+      <button onclick="location.href='products.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="products.html" style="decoration:none; color:white;">Productos</a> <span class="sr-only">(current)</span></button>
+      <button onclick="location.href='sell.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="sell.html" style="decoration:none; color:white;">Vender</a> <span class="sr-only">(current)</span></button>
+      <button onclick="location.href='cart.html' " class="btn btn-outline-secondary my-2 my-sm-0"><a href="cart.html" style="decoration:none; color:white;">Carrito</a> <span class="sr-only">(current)</span></button>
       
       <div class="dropdown mr-sm-2">
         <button class="btn btn-outline-info my-2 my-sm-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

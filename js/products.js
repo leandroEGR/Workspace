@@ -76,23 +76,22 @@ function showProductsList(array){
         for(let i = 0; i < array.length; i++){
             let products = array[i];
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action" id="producto`+i+ `">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ products.name +`</h4>
-                        
-                        <small class="text-muted">` + products.soldCount + ` artículos</small>
+                <a href="product-info.html" class="list-group-item list-group-item-action" id="producto`+i+ `">
+                <div class="row">
+                    <div class="col-md-4">
+                    <img src="` + products.imgSrc + `" alt="` + products.description + `" class="card-img-top">
                     </div>
-                    <p class="mb-1">` + products.description + `</p>
-                    <h4 class="mb-1">`+products.currency + ' ' + products.cost +`</h4>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="card-title">`+ products.name +`</h4> 
+                            <small class="card-text">` + products.soldCount + ` artículos</small>
+                        </div>
+                        <p class="card-text">` + products.description + `</p>
+                        <h4 class="card-text">`+products.currency + ' ' + products.cost +`</h4>
+                    </div>
                 </div>
-            </div>
-             </a>
-        `
+                </a>
+            `
     
     document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
         }; 
