@@ -11,7 +11,8 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -38,11 +39,23 @@
   <script src="js/cart.js"></script>
 
   <div class="container p-5">
-      <h1>Artículos de su carrito: </h1>  
-  </div>  
+    <h1 class="mb-3">Elegir tipo de envío.</h1>
+    <p>Para finalizar su compra verifique su carrito,luego seleccione el envío y por último elija un medio de pago.</p>
+    
   <div class="container" id="tableCart"></div>
-  
+</div> 
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+   
+  </footer>
   <div id="spinner-wrapper">
+    
     <div class="lds-ring">
       <div></div>
       <div></div>
@@ -50,6 +63,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
